@@ -1,0 +1,307 @@
+/* Estilo CSS Padrão */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #004d99;
+    color: #333;
+    background-image: url('https://investidores.webytebr.com/img/fundo.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Estilo para o vídeo de fundo */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: transparent;
+    color: white;
+    padding: 15px 0;
+}
+
+/* Navegação */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.nav-buttons .button {
+    padding: 12px 20px;
+    font-size: 14px;
+    background-color: #004d99;
+    color: white;
+    border: 2px solid #004d99;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-buttons .button:hover {
+    background-color: #006bb3;
+    border-color: #006bb3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Conteúdo Centralizado */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.logo {
+    margin: 20px auto;
+}
+
+.logo img {
+    width: 250px;
+    max-width: 100%;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.button-container .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button-container .button {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #004d99;
+    color: white;
+    border: 2px solid #004d99;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+    max-width: 100%;
+}
+
+.button-container .button:hover {
+    background-color: #006bb3;
+    border-color: #006bb3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+    margin-top: 10px;
+    font-size: 48px;
+    transition: color 0.3s;
+}
+
+.icon-github {
+    color: #333;
+}
+
+.icon-linkedin {
+    color: #0077b5;
+}
+
+.icon:hover {
+    opacity: 0.8;
+}
+
+/* Rodapé */
+.footer {
+    background-color: transparent;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o conteúdo do cabeçalho */
+.header-content {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Adicionando efeitos de texto */
+h1, h2, p {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px #000;
+}
+
+/* Responsividade Geral */
+@media (max-width: 768px) {
+    .nav-buttons {
+        gap: 10px;
+    }
+
+    .nav-buttons .button {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    .button-container .button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .logo img {
+        width: 200px;
+    }
+}
+
+/* Dispositivos Android e iOS (Altura Pequena e Larga) */
+@media screen and (max-width: 480px), screen and (max-height: 700px) {
+    .nav-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-buttons .button {
+        padding: 8px 14px;
+        font-size: 10px;
+        width: 90%;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .button-container .button {
+        padding: 10px 16px;
+        font-size: 12px;
+        width: 90%;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
+
+/* Botão estilo hambúrguer */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Menu móvel */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 999;
+}
+
+/* Estilização dos botões no menu móvel */
+.mobile-menu .button {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #004d99;
+    color: white;
+    border: 2px solid #004d99;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.mobile-menu .button:hover {
+    background-color: #006bb3;
+    transform: scale(1.05);
+}
+
+/* Mostra o menu móvel e o botão de hambúrguer em dispositivos móveis */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-buttons {
+        display: none;
+    }
+
+    .mobile-menu.active {
+        display: flex;
+    }
+}
+
+.button {
+    padding: 12px 20px;
+    font-size: 14px;
+    background-color: #004d99;
+    color: white;
+    border: 2px solid #004d99;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
