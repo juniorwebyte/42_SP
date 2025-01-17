@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #001f3f, #001f3f);
+            margin: 0;
+            overflow: hidden;
+        }
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 40px;
+            background-color: inherit;
+            border-radius: 10px;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background: #f0e68c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .sun {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: #ffdd57;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rain 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rain {
+            0% { top: 100px; }
+            100% { top: 500px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+    <div class="moon"></div>
+    <div class="sun"></div>
+
+    <!-- Incluindo a biblioteca jQuery versão 3.6.0 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- 
+    A biblioteca jQuery é uma biblioteca JavaScript rápida, pequena e rica em recursos. 
+    Ela simplifica várias tarefas de desenvolvimento web, como manipulação de documentos HTML, 
+    tratamento de eventos, animações e interações Ajax. Aqui estão alguns dos principais recursos do jQuery:
+    -->
+
+    <!-- 
+    1. Seleção de Elementos: Facilita a seleção e manipulação de elementos DOM com seletores CSS.
+    Exemplo:
+    $(document).ready(function(){
+        $("p").click(function(){
+            $(this).hide();
+        });
+    });
+    -->
+
+    <!-- 
+    2. Manipulação de DOM: Permite adicionar, remover e modificar elementos e atributos no DOM.
+    Exemplo:
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("p").text("Texto alterado!");
+        });
+    });
+    -->
+
+    <!-- 
+    3. Eventos: Simplifica o gerenciamento de eventos, como cliques, movimentos do mouse e teclas pressionadas.
+    Exemplo:
+    $(document).ready(function(){
+        $("p").on("mouseover", function(){
+            $(this).css("color", "red");
+        });
+    });
+    -->
+
+    <!-- 
+    4. Efeitos e Animações: Oferece métodos para criar animações e efeitos visuais.
+    Exemplo:
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("p").fadeOut();
+        });
+    });
+    -->
+
+    <!-- 
+    5. Ajax: Facilita a realização de requisições assíncronas para carregar dados no background sem recarregar a página.
+    Exemplo:
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.ajax({
+                url: "demo_test.txt",
+                success: function(result){
+                    $("#div1").html(result);
+                }
+            });
+        });
+    });
+    -->
+
+    <!-- 
+    6. Utilitários: Inclui várias funções utilitárias para tarefas comuns, como iteração de arrays e objetos, manipulação de strings e muito mais.
+    Exemplo:
+    $(document).ready(function(){
+        var arr = [1, 2, 3, 4];
+        $.each(arr, function(index, value){
+            console.log("Index: " + index + ", Value: " + value);
+        });
+    });
+    -->
+    <script>
+        $(document).ready(function() {
+            const balloon = $('#balloon');
+            const colors = ['red', 'green', 'blue'];
+            let size = 200;
+            let colorIndex = 0;
+
+            balloon.click(function() {
+                size += 10;
+                if (size > 420) {
+                    size = 200;
+                }
+                balloon.css({
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    backgroundColor: colors[colorIndex]
+                });
+                colorIndex = (colorIndex + 1) % colors.length;
+            });
+
+            balloon.mouseleave(function() {
+                size = Math.max(200, size - 5);
+                balloon.css({
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    backgroundColor: colors[colorIndex]
+                });
+                colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+            });
+
+            // Função para criar estrelas no fundo
+            function createStars() {
+                for (let i = 0; i < 100; i++) {
+                    const star = $('<div></div>').addClass('star');
+                    star.css({
+                        top: `${Math.random() * 100}vh`,
+                        left: `${Math.random() * 100}vw`
+                    });
+                    $('body').append(star);
+                }
+            }
+
+            // Cria estrelas ao carregar a página
+            createStars();
+        });
+    </script>
+</body>
+</html>

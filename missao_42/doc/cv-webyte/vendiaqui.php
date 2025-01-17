@@ -1,0 +1,163 @@
+<?php 
+// Defina as variáveis de logo e favicon de forma dinâmica
+$logo = 'assets/img/vendi-aqui.png';
+$favicon = 'assets/img/icon.png';
+$home_link = 'https://vendiaqui.com/';
+
+// Função para validar o caminho de arquivos e evitar falhas
+function isValidFile($filePath) {
+    return file_exists($filePath) && is_readable($filePath);
+}
+
+// Verifique se os arquivos de logo e favicon existem, caso contrário, defina um padrão
+$logoPath = isValidFile($logo) ? $logo : 'assets/img/default-logo.png';
+$faviconPath = isValidFile($favicon) ? $favicon : 'assets/img/default-favicon.png';
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação para Investidores - Vendiaqui.com</title>
+    <!-- Favicon dinâmico -->
+    <link rel="icon" href="<?= htmlspecialchars($faviconPath); ?>" type="image/png">
+    <!-- Código CSS -->
+    <link rel="stylesheet" href="assets/css/vendiaqui.css">
+    <link rel="stylesheet" href="assets/css/formulario_investimento.css">
+</head>
+<body>
+    <!-- Header with the main logo centered -->
+    <div class="header">
+        <img src="<?= htmlspecialchars($logoPath); ?>" alt="Logo Principal" />
+        <br />
+        <button class="home-button" onclick="window.location.href='index.php'">Voltar para Home</button> <!-- Botão Home -->
+    </div>
+    
+    <!-- Botão Investir Agora -->
+    <button class="investir-button" onclick="window.location.href='php/formulario_investimento.php'">Investir Agora</button>
+
+    <div class="container">
+        <p class="text-center">Vendiaqui.com: Inovação no Mercado de E-commerce e Pagamentos Online 🌐</p>
+        <p class="text-center">Lançamento previsto para 2025 📅</p>
+        <p class="text-center"><strong>Proposta de Valor:</strong> Revolucionar o mercado com uma plataforma integrada e acessível. 🔥</p>
+
+        <!-- Problem and Solution Section -->
+        <div class="section">
+            <h2>1. Problema e Solução 💡</h2>
+            <div><span class="emoji">🎯</span><strong> Problema:</strong></div>
+            <ul>
+                <li>Mercado fragmentado com custos elevados para vendedores e compradores. 💸</li>
+                <li>Falta de segurança em trocas e negociações online. 🔐</li>
+                <li>Necessidade de soluções integradas para vendas, pagamentos e monetização. 🔄</li>
+            </ul>
+            <div><span class="emoji">✅</span><strong> Soluão:</strong></div>
+            <ul>
+                <li>Plataforma completa que combina e-commerce, classificados, leilões e pagamentos. 🌟</li>
+                <li>Módulo 'Feira do Rolo': Trocas em locais seguros indicados pela plataforma. 🤝</li>
+                <li>WebytePay: Gateway próprio para reduzir custos e simplificar transaçes. 💳</li>
+            </ul>
+        </div>
+
+        <!-- Market and Opportunity Section -->
+        <div class="section">
+            <h2>2. Mercado e Oportunidade 🌍</h2>
+            <div><span class="emoji"></span><strong> Mercado Total Endereçável (TAM):</strong></div>
+            <p>O mercado de e-commerce e pagamentos no Brasil movimenta bilhões anualmente. 💰</p>
+            <div><span class="emoji">🏆</span><strong> Segmento Alvo (SAM):</strong></div>
+            <ul>
+                <li>Micro e pequenos vendedores. 🛒</li>
+                <li>Consumidores que buscam segurança e economia em transações online. 🔐</li>
+            </ul>
+            <div><span class="emoji">💡</span><strong> Diferenciais Competitivos:</strong></div>
+            <ul>
+                <li>Integração de marketplace, leilões e classificados em uma plataforma única. 🌟</li>
+                <li>Soluções de pagamento próprias com menores custos. 💳</li>
+                <li>Foco na segurança do usuário. ️</li>
+            </ul>
+        </div>
+
+        <!-- Financial Projections Section -->
+        <div class="section">
+            <h2>3. Projeções Financeiras 📈</h2>
+            <p><span class="emoji">💼</span><strong> Ano 1 (2025):</strong></p>
+            <ul>
+                <li>Usuários: 10.000 ativos. 👥</li>
+                <li>Receita: R$ 500.000. </li>
+                <li>Investimento inicial necessário: R$ 500.000. 🏗️</li>
+            </ul>
+            <p><span class="emoji">💼</span><strong> Ano 2 (2026):</strong></p>
+            <ul>
+                <li>Usuários: 50.000 ativos. </li>
+                <li>Receita: R$ 2.000.000. 💸</li>
+                <li>EBITDA: R$ 400.000. 🧾</li>
+            </ul>
+            <p><span class="emoji">💼</span><strong> Ano 3 (2027):</strong></p>
+            <ul>
+                <li>Usuários: 200.000 ativos. 🚀</li>
+                <li>Receita: R$ 10.000.000. 💰</li>
+                <li>EBITDA: R$ 2.500.000. 🏆</li>
+            </ul>
+        </div>
+
+        <!-- EBITDA and Valuation Section -->
+        <div class="section">
+            <h2>4. O que é EBITDA e Valuation? 🧐</h2>
+            <div><strong>EBITDA:</strong> Lucro operacional antes de deduzir juros, impostos, depreciação e amortização. 💡</div>
+            <p>Indica o desempenho real do negócio e sua capacidade de gerar caixa. </p>
+            <div><strong>Valuation:</strong> Processo de determinar o valor de mercado de uma empresa. 📊</div>
+            <p>Inclui fatores como potencial de crescimento, receitas futuras e posicionamento no mercado. 💰</p>
+            <div><strong>Pré-revenue:</strong> Empresas que ainda não geram receita, mas têm grande potencial de crescimento. 🚀</div>
+        </div>
+
+        <!-- Valuation and Investment Proposal Section -->
+        <div class="section">
+            <h2>5. Valuation e Proposta de Investimento 💵</h2>
+            <ul>
+                <li>Valuation estimado: R$ 1 milhão a R$ 2 milhões (pré-revenue). 📊</li>
+                <li>Captação necessária: R$ 100.000 a R$ 500.000. 💼</li>
+                <li>Participação oferecida: 5% a 10% de ações. 📈</li>
+                <li>Uso do capital: Desenvolvimento da plataforma, marketing e aquisição de usuários. 🛠️</li>
+            </ul>
+        </div>
+
+        <!-- Conclusion Section -->
+        <div class="section">
+            <h2>6. Conclusão e Próximos Passos ✅</h2>
+            <p><strong>Vendiaqui.com</strong> está preparado para entrar em um mercado altamente competitivo, com uma proposta de valor diferenciada.</p>
+            <p>O próximo passo é garantir o investimento necessário para acelerar o desenvolvimento e garantir um lançamento bem-sucedido em 2025. 🚀</p>
+            <p><strong>Invista agora e seja parte de um futuro promissor!</strong> 🌟</p>
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Vendiaqui.com - Revolucionando o e-commerce, conectando vendedores e compradores. 🌐💸</p>
+        <p>© 2024 <a href="https://vendiaqui.com/" target="_blank" title="Webyte | Tecnologia Laravel">Vendi Aqui</a> Todos os direitos reservados. 🚀</p>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top">Voltar ao Topo ↑</button>
+
+    <script>
+        // Get the button
+        const mybutton = document.getElementById("backToTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.onclick = function() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        };
+    </script>
+</body>
+</html>

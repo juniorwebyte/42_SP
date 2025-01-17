@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="icon" href="assets/img/icon.png" type="image/png">
+    <!-- CSS Padrão -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Vídeo de fundo -->
+    <video class="background-video" autoplay muted loop>
+        <source src="assets/videos/video.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+    </video>
+
+    <!-- Cabeçalho -->
+    <header class="header">
+        <!-- Botão estilo hambúrguer -->
+        <button class="menu-toggle" aria-label="Abrir menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Navegação padrão (ocultada em dispositivos móveis) -->
+        <nav class="nav-buttons">
+            <a href="vendiaqui.html" class="button" title="Sobre Mim">Vendi Aqui</a>
+            <a href="webytemusic.html" class="button" title="Sobre Mim">Webyte Music</a>
+        </nav>
+
+        <!-- Menu móvel -->
+        <nav class="mobile-menu">
+            <a href="#sobre" class="button">Sobre</a>
+            <a href="#projetos" class="button">Projetos</a>
+            <a href="#contato" class="button">Contato</a>
+        </nav>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container">
+        <div class="logo">
+            <img class="junior" src="assets/img/webyte_branco.png" alt="Minha Foto">
+        </div>
+
+        <div class="header-content">
+            <h1>Seja bem-vindo ao nosso portfólio.</h1>
+            <p>Conheça mais sobre a gente:</p>
+        </div>
+
+        <section id="projetos">
+            <h2>Currículos</h2>
+            <div class="button-container">
+                <div class="button-group">
+                    <a href="curriculo-junior.html" class="button">Currículo Júnior</a>
+                    <a href="https://github.com/juniorwebyte/WebytePay" target="_blank" class="icon icon-github" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <div class="button-group">
+                    <a href="curriculum_jota.html" class="button">Currículo Jota</a>
+                    <a href="https://linkedin.com/in/meuperfil" target="_blank" class="icon icon-linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2024 Webyte Desenvolvimentos - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Script para o menu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const mobileMenu = document.querySelector(".mobile-menu");
+
+            menuToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("active");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #001f3f, #001f3f);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        .calculator {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .calculator input, .calculator select {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .calculator input[type="submit"] {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-radius: 5px;
+        }
+        .calculator input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background: #f0e68c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .sun {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: #ffdd57;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rain 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rain {
+            0% { top: 100px; }
+            100% { top: 500px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <!-- Campo de entrada para o operando esquerdo -->
+        <input type="text" id="leftOperand" placeholder="Operador Esquerdo">
+        <!-- Campo de seleção para o operador -->
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <!-- Campo de entrada para o operando direito -->
+        <input type="text" id="rightOperand" placeholder="Operando Direito">
+        <!-- Botão de submissão para calcular -->
+        <input type="submit" value="Calcule agora!" id="calculateBtn">
+    </div>
+    <div class="moon"></div>
+    <div class="sun"></div>
+
+    <!-- Incluindo a biblioteca jQuery versão 3.6.0 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- 
+    A biblioteca jQuery é uma biblioteca JavaScript rápida, pequena e rica em recursos. 
+    Ela simplifica várias tarefas de desenvolvimento web, como manipulação de documentos HTML, 
+    tratamento de eventos, animações e interações Ajax. Aqui estão alguns dos principais recursos do jQuery:
+    -->
+
+    <!-- 
+    1. Seleção de Elementos: Facilita a seleção e manipulação de elementos DOM com seletores CSS.
+    Exemplo:
+    $(document).ready(function(){
+        $("p").click(function(){
+            $(this).hide();
+        });
+    });
+    -->
+
+    <!-- 
+    2. Manipulação de DOM: Permite adicionar, remover e modificar elementos e atributos no DOM.
+    Exemplo:
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("p").text("Texto alterado!");
+        });
+    });
+    -->
+
+    <!-- 
+    3. Eventos: Simplifica o gerenciamento de eventos, como cliques, movimentos do mouse e teclas pressionadas.
+    Exemplo:
+    $(document).ready(function(){
+        $("p").on("mouseover", function(){
+            $(this).css("color", "red");
+        });
+    });
+    -->
+
+    <!-- 
+    4. Efeitos e Animações: Oferece métodos para criar animações e efeitos visuais.
+    Exemplo:
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("p").fadeOut();
+        });
+    });
+    -->
+
+    <!-- 
+    5. Ajax: Facilita a realização de requisições assíncronas para carregar dados no background sem recarregar a página.
+    Exemplo:
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.ajax({
+                url: "demo_test.txt",
+                success: function(result){
+                    $("#div1").html(result);
+                }
+            });
+        });
+    });
+    -->
+
+    <!-- 
+    6. Utilitários: Inclui várias funções utilitárias para tarefas comuns, como iteração de arrays e objetos, manipulação de strings e muito mais.
+    Exemplo:
+    $(document).ready(function(){
+        var arr = [1, 2, 3, 4];
+        $.each(arr, function(index, value){
+            console.log("Index: " + index + ", Value: " + value);
+        });
+    });
+    -->
+    <script>
+        $(document).ready(function() {
+            // Função para realizar o cálculo
+            function calculate() {
+                // Obtém os valores dos operandos e do operador
+                const leftOperand = parseInt($('#leftOperand').val());
+                const operator = $('#operator').val();
+                const rightOperand = parseInt($('#rightOperand').val());
+
+                // Verifica se os operandos são válidos
+                if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0) {
+                    alert('Error :(');
+                    console.log('Erro :(');
+                    return;
+                }
+
+                let result;
+                // Realiza o cálculo com base no operador selecionado
+                switch (operator) {
+                    case '+':
+                        result = leftOperand + rightOperand;
+                        break;
+                    case '-':
+                        result = leftOperand - rightOperand;
+                        break;
+                    case '*':
+                        result = leftOperand * rightOperand;
+                        break;
+                    case '/':
+                        if (rightOperand === 0) {
+                            alert("São mais de 9.000!");
+                            console.log("São mais de 9.000!");
+                            return;
+                        }
+                        result = leftOperand / rightOperand;
+                        break;
+                    case '%':
+                        if (rightOperand === 0) {
+                            alert("São mais de 9.000!");
+                            console.log("São mais de 9.000!");
+                            return;
+                        }
+                        result = leftOperand % rightOperand;
+                        break;
+                    default:
+                        alert('Erro :(');
+                        console.log('Erro :(');
+                        return;
+                }
+
+                // Exibe o resultado em um alerta e no console
+                alert(`Resultado: ${result}`);
+                console.log(`Resultado: ${result}`);
+            }
+
+            // Evento de clique para calcular
+            $('#calculateBtn').click(calculate);
+
+            // Exibe um alerta a cada 30 segundos
+            setInterval(() => {
+                alert('Por favor, calcule...');
+            }, 30000);
+
+            // Função para criar estrelas no fundo
+            function createStars() {
+                for (let i = 0; i < 100; i++) {
+                    const star = $('<div></div>').addClass('star');
+                    star.css({
+                        top: `${Math.random() * 100}vh`,
+                        left: `${Math.random() * 100}vw`
+                    });
+                    $('body').append(star);
+                }
+            }
+
+            // Cria estrelas ao carregar a página
+            createStars();
+        });
+    </script>
+</body>
+</html>

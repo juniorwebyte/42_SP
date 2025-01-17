@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #001f3f, #001f3f);
+            margin: 0;
+            overflow: hidden;
+        }
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 40px;
+            background-color: inherit;
+            border-radius: 10px;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background: #f0e68c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .sun {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: #ffdd57;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rain 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rain {
+            0% { top: 100px; }
+            100% { top: 500px; }
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        @keyframes spark {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+        }
+        .spark {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: yellow;
+            border-radius: 50%;
+            animation: spark 0.5s ease-out;
+        }
+        #message {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+    <div class="moon"></div>
+    <div class="sun"></div>
+    <div id="message">Ah, que pena! Você explodiu o balão.</div>
+
+    <script>
+        const balloon = document.getElementById('balloon');
+        const message = document.getElementById('message');
+        const colors = ['red', 'green', 'blue'];
+        let size = 200;
+        let colorIndex = 0;
+
+        balloon.addEventListener('click', () => {
+            size += 10;
+            if (size > 420) {
+                explodeBalloon();
+                return;
+            }
+            balloon.style.width = `${size}px`;
+            balloon.style.height = `${size}px`;
+            colorIndex = (colorIndex + 1) % colors.length;
+            balloon.style.backgroundColor = colors[colorIndex];
+        });
+
+        balloon.addEventListener('mouseleave', () => {
+            size = Math.max(200, size - 5);
+            balloon.style.width = `${size}px`;
+            balloon.style.height = `${size}px`;
+            colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+            balloon.style.backgroundColor = colors[colorIndex];
+        });
+
+        // Função para criar estrelas no fundo
+        function createStars() {
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                document.body.appendChild(star);
+            }
+        }
+
+        // Cria estrelas ao carregar a página
+        window.onload = createStars;
+
+        // Função para criar efeito de explosão
+        function explodeBalloon() {
+            balloon.style.transition = 'transform 0.5s ease-out, opacity 0.5s ease-out';
+            balloon.style.transform = 'scale(2)';
+            balloon.style.opacity = '0';
+            createSparks();
+            setTimeout(() => {
+                balloon.style.display = 'none';
+                message.style.display = 'block';
+                resetBalloon();
+            }, 500);
+        }
+
+        // Função para criar faiscas
+        function createSparks() {
+            for (let i = 0; i < 20; i++) {
+                const spark = document.createElement('div');
+                spark.className = 'spark';
+                spark.style.top = `${Math.random() * 100}%`;
+                spark.style.left = `${Math.random() * 100}%`;
+                balloon.appendChild(spark);
+                setTimeout(() => {
+                    spark.remove();
+                }, 500);
+            }
+        }
+
+        // Função para resetar o balão
+        function resetBalloon() {
+            setTimeout(() => {
+                balloon.style.display = 'block';
+                balloon.style.transform = 'scale(1)';
+                balloon.style.opacity = '1';
+                balloon.style.width = '200px';
+                balloon.style.height = '200px';
+                balloon.style.backgroundColor = 'red';
+                balloon.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+                size = 200;
+                colorIndex = 0;
+                message.style.display = 'none';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

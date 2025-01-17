@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Tarefas</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #001f3f, #001f3f);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        #ft_list {
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .task {
+            background: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding: 10px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background: #f0e68c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .sun {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: #ffdd57;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rain 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rain {
+            0% { top: 100px; }
+            100% { top: 500px; }
+        }
+    </style>
+</head>
+<body>
+    <button onclick="addTask()">Adicionar tarefa</button>
+    <div id="ft_list"></div>
+    <div class="moon"></div>
+    <div class="sun"></div>
+    <script>
+        // Função para adicionar uma nova tarefa
+        function addTask() {
+            const taskText = prompt('Digite a nova tarefa:');
+            if (taskText) {
+                const taskDiv = document.createElement('div');
+                taskDiv.className = 'task';
+                taskDiv.textContent = taskText;
+                taskDiv.onclick = () => removeTask(taskDiv);
+                const ftList = document.getElementById('ft_list');
+                ftList.insertBefore(taskDiv, ftList.firstChild);
+                saveTasks();
+            }
+        }
+
+        // Função para remover uma tarefa
+        function removeTask(taskDiv) {
+            if (confirm('Você deseja remover esta tarefa?')) {
+                taskDiv.remove();
+                saveTasks();
+            }
+        }
+
+        // Função para salvar as tarefas no cookie
+        function saveTasks() {
+            const tasks = [];
+            document.querySelectorAll('#ft_list .task').forEach(task => {
+                tasks.push(task.textContent);
+            });
+            document.cookie = `tasks=${JSON.stringify(tasks)};path=/`;
+        }
+
+        // Função para carregar as tarefas do cookie
+        function loadTasks() {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === 'tasks') {
+                    const tasks = JSON.parse(value);
+                    tasks.forEach(taskText => {
+                        const taskDiv = document.createElement('div');
+                        taskDiv.className = 'task';
+                        taskDiv.textContent = taskText;
+                        taskDiv.onclick = () => removeTask(taskDiv);
+                        document.getElementById('ft_list').appendChild(taskDiv);
+                    });
+                }
+            }
+        }
+
+        // Carrega as tarefas ao iniciar a página
+        window.onload = loadTasks;
+
+        // Função para criar estrelas no fundo
+        function createStars() {
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                document.body.appendChild(star);
+            }
+        }
+
+        // Cria estrelas ao carregar a página
+        window.onload = () => {
+            loadTasks();
+            createStars();
+        };
+    </script>
+</body>
+</html>

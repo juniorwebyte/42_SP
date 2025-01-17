@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Perfil</title>
+    <link rel="stylesheet" href="css/card.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #001f3f, #001f3f);
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background: #f0e68c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+        .sun {
+            position: absolute;
+            top: 250px; /* Alinhando o Sol mais abaixo */
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: #ffdd57;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rain 5s infinite;
+            z-index: 2;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rain {
+            0% { top: 250px; }
+            100% { top: 600px; }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+        .profile-card {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <h1 class="title">Meu Cartão de Perfil</h1>
+        <table class="profile-table">
+            <tr>
+                <td colspan="2" class="profile-photo">
+                    <img src="dog.jpg" alt="Foto de Perfil">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="profile-login">meu_login</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="profile-description">Desenvolvedor Web</td>
+            </tr>
+            <tr>
+                <td class="social-media">
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="facebook.png" alt="Facebook">
+                    </a>
+                </td>
+                <td class="social-media">
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="twitter.png" alt="Twitter">
+                    </a>
+                </td>
+                <td class="social-media">
+                    <a href="https://linkedin.com" target="_blank">
+                        <img src="linkedin.png" alt="LinkedIn">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="contact-button"><br>
+                    <button>Contact</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="overlay">
+        <div class="moon"></div>
+        <div class="sun"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Função para criar estrelas no fundo
+            function createStars() {
+                for (let i = 0; i < 100; i++) {
+                    const star = $('<div></div>').addClass('star');
+                    star.css({
+                        top: `${Math.random() * 100}vh`,
+                        left: `${Math.random() * 100}vw`
+                    });
+                    $('.overlay').append(star);
+                }
+            }
+
+            // Cria estrelas ao carregar a página
+            createStars();
+        });
+    </script>
+</body>
+</html>

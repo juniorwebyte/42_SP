@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 03: count_files.sh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        ol {
+            margin-left: 20px;
+        }
+        pre {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        .code {
+            color: #d9534f;
+            font-family: "Courier New", Courier, monospace;
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .content-end {
+            margin-bottom: 60px; /* Espaço adicional antes do rodapé */
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercício 03: count_files.sh</h1>
+    </header>
+
+    <section>
+        <h2>Objetivo</h2>
+        <p>Criar um script chamado <code class="code">count_files.sh</code> que contabiliza e exibe o número de arquivos regulares e diretórios presentes na pasta atual. O script não deve contar arquivos ocultos (aqueles que começam com ponto).</p>
+    </section>
+
+    <section>
+        <h2>Passo a Passo</h2>
+        <ol>
+            <li>
+                <strong>Navegar até a pasta <code class="code">ex03</code>:</strong>
+                <p>Primeiramente, vá até a pasta <code class="code">ex03</code>, onde o arquivo será criado. Se essa pasta não existir, crie-a com os seguintes comandos:</p>
+                <pre id="code1"><code class="code">cd ~/missao_42/cell00
+mkdir ex03
+cd ex03</code></pre>
+                <button onclick="copyCode('code1')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Criar o arquivo <code class="code">count_files.sh</code> com o comando necessário:</strong>
+                <p>Agora, crie o arquivo <code class="code">count_files.sh</code> contendo o comando que contará e exibirá os arquivos e diretórios da pasta atual:</p>
+                <pre id="code2"><code class="code">echo "find . -type f | wc -l; find . -type d | wc -l" > count_files.sh</code></pre>
+                <button onclick="copyCode('code2')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Verificar o conteúdo do arquivo:</strong>
+                <p>Depois de criar o arquivo <code class="code">count_files.sh</code>, verifique se o conteúdo foi inserido corretamente com o comando:</p>
+                <pre id="code3"><code class="code">cat count_files.sh</code></pre>
+                <p>O conteúdo do arquivo deve ser:</p>
+                <pre><code class="code">find . -type f | wc -l; find . -type d | wc -l</code></pre>
+                <button onclick="copyCode('code3')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Tornar o script executável:</strong>
+                <p>Se quiser executar o script diretamente, torne-o executável com o seguinte comando:</p>
+                <pre id="code4"><code class="code">chmod +x count_files.sh</code></pre>
+                <button onclick="copyCode('code4')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Testar o script:</strong>
+                <p>Agora, você pode executar o script com o comando:</p>
+                <pre id="code5"><code class="code">./count_files.sh</code></pre>
+                <p>O script retornará dois números: o primeiro é o número de arquivos regulares e o segundo é o número de diretórios na pasta atual.</p>
+                <button onclick="copyCode('code5')">Copiar código</button>
+            </li>
+        </ol>
+    </section>
+
+    <div class="content-end"></div>
+
+    <footer>
+        <p>&copy; 2025 Exercício 03 - count_files.sh</p>
+    </footer>
+
+    <script>
+        function copyCode(codeId) {
+            var codeElement = document.getElementById(codeId);
+            var range = document.createRange();
+            range.selectNode(codeElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+</html>

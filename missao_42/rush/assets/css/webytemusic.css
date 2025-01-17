@@ -1,0 +1,306 @@
+/* Definindo variáveis para cores */
+:root {
+    --primary-color: #004d99;
+    --secondary-color: #006bb3;
+    --highlight-color: #ff6600;
+    --text-color: #333;
+    --background-color: #f7f7f7;
+    --footer-text-color: #777;
+    --button-bg-color: #004d99;
+    --button-hover-color: #006bb3;
+}
+
+/* Estilo geral */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Títulos */
+h1, h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 2.25rem; /* 36px */
+    margin-top: 3.125rem; /* 50px */
+    text-align: center;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 1.75rem; /* 28px */
+    color: var(--primary-color);
+    margin-top: 1.25rem; /* 20px */
+}
+
+/* Container principal */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2.5rem 0; /* 40px */
+}
+
+/* Seções */
+.section {
+    background-color: #fff;
+    padding: 1.25rem; /* 20px */
+    margin-bottom: 1.25rem; /* 20px */
+    border-radius: 0.5rem; /* 8px */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Emoji */
+.emoji {
+    font-size: 1.75rem; /* 28px */
+    margin-right: 0.5rem; /* 8px */
+}
+
+/* Destacando texto */
+.highlight {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+/* Lista sem estilo */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    padding: 0.625rem 0; /* 10px */
+    font-size: 1.125rem; /* 18px */
+}
+
+/* Rodapé */
+.footer {
+    text-align: center;
+    margin-top: 2.5rem; /* 40px */
+    font-size: 1rem; /* 16px */
+    color: var(--footer-text-color);
+}
+
+/* Cabeçalho */
+.header {
+    text-align: center;
+    padding: 3.125rem 0; /* 50px */
+    background-color: #ffffff;
+}
+
+.header img {
+    width: 12.5rem; /* 200px */
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+/* Botões */
+.home-button {
+    background-color: var(--button-bg-color);
+    color: white;
+    border: none;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    font-size: 1.125rem; /* 18px */
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.home-button:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 1.25rem; /* 20px */
+    right: 1.25rem; /* 20px */
+    background-color: var(--button-bg-color);
+    color: white;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    border: none;
+    border-radius: 0.3125rem; /* 5px */
+    cursor: pointer;
+    font-size: 1.125rem; /* 18px */
+    display: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #003366;
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Títulos menores em telas médias */
+    h1 {
+        font-size: 1.75rem; /* 28px */
+        margin-top: 2rem; /* 30px */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* 24px */
+    }
+
+    /* Container menor */
+    .container {
+        width: 90%;
+        padding: 1.25rem 0; /* 20px */
+    }
+
+    /* Ajuste na logo */
+    .header img {
+        width: 10rem; /* 160px */
+    }
+
+    /* Botões menores */
+    .home-button {
+        font-size: 1rem; /* 16px */
+        padding: 0.5rem 1rem; /* 8px 16px */
+    }
+
+    .back-to-top {
+        font-size: 1rem; /* 16px */
+        padding: 0.5rem 1rem; /* 8px 16px */
+    }
+
+    .section {
+        padding: 1rem; /* 16px */
+        margin-bottom: 1rem; /* 16px */
+    }
+
+    ul li {
+        font-size: 1rem; /* 16px */
+    }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* 24px */
+        margin-top: 1.25rem; /* 20px */
+    }
+
+    h2 {
+        font-size: 1.25rem; /* 20px */
+    }
+
+    .container {
+        width: 95%;
+        padding: 1rem 0; /* 15px */
+    }
+
+    .header img {
+        width: 8rem; /* 120px */
+    }
+
+    .home-button {
+        font-size: 0.875rem; /* 14px */
+        padding: 0.375rem 0.875rem; /* 6px 14px */
+    }
+
+    .back-to-top {
+        font-size: 0.875rem; /* 14px */
+        padding: 0.375rem 0.875rem; /* 6px 14px */
+    }
+
+    .section {
+        padding: 0.75rem; /* 12px */
+        margin-bottom: 0.75rem; /* 12px */
+    }
+
+    ul li {
+        font-size: 0.875rem; /* 14px */
+    }
+}
+/* Estilo do botão Investir Agora */
+.investir-button {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    border: none;
+    padding: 15px 25px; /* Tamanho do botão */
+    font-size: 18px; /* Tamanho da fonte */
+    cursor: pointer; /* Aparece como um cursor de mão */
+    border-radius: 6px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave na cor de fundo */
+}
+
+.investir-button:hover {
+    background-color: #45a049; /* Cor de fundo do botão ao passar o mouse */
+}
+/* Estilo do container dos botões */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    margin-top: 10px; /* Espaçamento entre os botões */
+}
+
+/* Estilo do botão Investir Agora */
+.investir-button {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto */
+    border: none;
+    padding: 15px 25px; /* Tamanho do botão */
+    font-size: 18px; /* Tamanho da fonte */
+    cursor: pointer; /* Aparece como um cursor de mão */
+    border-radius: 6px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Transição suave na cor de fundo */
+    margin-top: 10px; /* Distância do botão acima */
+}
+
+.investir-button:hover {
+    background-color: #45a049; /* Cor de fundo do botão ao passar o mouse */
+}
+/* Estilo do cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+}
+
+/* Container para o botão Voltar para Home */
+.home-button-container {
+    margin-top: 20px; /* Espaço acima do botão */
+}
+
+/* Estilo do botão Voltar para Home */
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    margin-top: 10px; /* Distância do texto da logo */
+}
+
+.submit-button:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
+
+/* Estilo do botão Investir Agora */
+.investir-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Distância do botão abaixo */
+}
+
+/* Centralizando o botão Investir Agora */
+.investir-button:hover {
+    background-color: #45a049; /* Cor do botão ao passar o mouse */
+}
+

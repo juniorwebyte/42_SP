@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 05: build.sh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        ol {
+            margin-left: 20px;
+        }
+        pre {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        .code {
+            color: #d9534f;
+            font-family: "Courier New", Courier, monospace;
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .content-end {
+            margin-bottom: 60px; /* Espaço adicional antes do rodapé */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercício 05: build.sh</h1>
+    </header>
+
+    <section>
+        <h2>Objetivo</h2>
+        <p>Criar um script chamado <code class="code">build.sh</code> que cria pastas com base nos argumentos passados para o script, adicionando o prefixo <code class="code">ex</code> ao nome da pasta. Se nenhum argumento for passado, o script exibe a mensagem <code class="code">No arguments supplied</code>.</p>
+    </section>
+
+    <section>
+        <h2>Passo a Passo</h2>
+        <ol>
+            <li>
+                <strong>Navegar até a pasta <code class="code">ex05</code>:</strong>
+                <p>Primeiramente, vá até a pasta onde o exercício será realizado. No caso, a pasta <code class="code">ex05</code> dentro da estrutura de pastas já criada. Se ela não existir, crie-a utilizando os seguintes comandos:</p>
+                <pre><code class="code">cd ~/missao_42/cell00
+mkdir ex05
+cd ex05</code></pre>
+            </li>
+            <li>
+                <strong>Criar o script <code class="code">build.sh</code> com o código necessário:</strong>
+                <p>Agora, crie o arquivo <code class="code">build.sh</code> com o seguinte conteúdo:</p>
+                <pre><code class="code">#!/bin/bash
+
+# Verifica se foram passados argumentos para o script
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied"
+else
+    # Para cada argumento, cria o diretório com o prefixo "ex"
+    for arg in "$@"; do
+        mkdir "ex$arg"
+    done
+fi</code></pre>
+            </li>
+            <li>
+                <strong>Verificar o conteúdo do script:</strong>
+                <p>Depois de criar o script, você pode verificar se o conteúdo foi inserido corretamente utilizando o comando:</p>
+                <pre><code class="code">cat build.sh</code></pre>
+                <p>O conteúdo do arquivo deve ser:</p>
+                <pre><code class="code">#!/bin/bash
+
+# Verifica se foram passados argumentos para o script
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied"
+else
+    # Para cada argumento, cria o diretório com o prefixo "ex"
+    for arg in "$@"; do
+        mkdir "ex$arg"
+    done
+fi</code></pre>
+            </li>
+            <li>
+                <strong>Tornar o script executável:</strong>
+                <p>Para que o script possa ser executado, é necessário torná-lo executável com o seguinte comando:</p>
+                <pre><code class="code">chmod +x build.sh</code></pre>
+            </li>
+            <li>
+                <strong>Testar o script:</strong>
+                <p>Agora, execute o script com diferentes números de argumentos e verifique se as pastas são criadas corretamente. Aqui estão alguns exemplos:</p>
+                <ul>
+                    <li><code>./build.sh</code> (sem argumentos)</li>
+                    <pre><code class="code">No arguments supplied</code></pre>
+                    <li><code>./build.sh 00</code></li>
+                    <pre><code class="code">drwxr-xr-x 2 user user 4096 Jan 14 23:42 ex00</code></pre>
+                    <li><code>./build.sh 01 02 03 04</code></li>
+                    <pre><code class="code">
+drwxr-xr-x 2 user user 4096 Jan 14 23:42 ex01
+drwxr-xr-x 2 user user 4096 Jan 14 23:42 ex02
+drwxr-xr-x 2 user user 4096 Jan 14 23:42 ex03
+drwxr-xr-x 2 user user 4096 Jan 14 23:42 ex04</code></pre>
+                </ul>
+            </li>
+        </ol>
+    </section>
+
+    <div class="content-end"></div>
+
+    <footer>
+        <p>&copy; 2025 Exercício 05 - build.sh</p>
+    </footer>
+</body>
+</html>

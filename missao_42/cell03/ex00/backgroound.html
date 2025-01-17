@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change background</title>
+    <link rel="stylesheet" href="css/backgroound.css">
+</head>
+<body>
+    <button id="changeColorButton">Mudar Cor de Fundo</button>
+    <script>
+        // Seleciona o botão
+        const button = document.getElementById('changeColorButton');
+
+        // Função para gerar uma cor aleatória
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        // Adiciona um evento de clique ao botão
+        button.addEventListener('click', () => {
+            // Altera a cor de fundo da página
+            document.body.style.backgroundColor = getRandomColor();
+        });
+    </script>
+</body>
+</html>

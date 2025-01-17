@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNCF Sandwich Menu</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: linear-gradient(to bottom, #001f3f, #001f3f);
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background: #f0e68c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            z-index: 2;
+        }
+        .sun {
+            position: absolute;
+            top: 250px; /* Alinhando o Sol mais abaixo */
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: #ffdd57;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rain 5s infinite;
+            z-index: 2;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rain {
+            0% { top: 250px; }
+            100% { top: 600px; }
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+        header {
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SNCF Sandwich Menu</h1>
+        <div class="dropdown">
+            <button>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="dropdown-content">
+                <a href="#home">INICIO</a>
+                <a href="#about">SOBRE</a>
+                <a href="#services">SERVIÇOS</a>
+                <div class="submenu">
+                    <a href="#service1">ENGENHARIA DE SOFTWARE</a>
+                    <a href="#service2">LOGICA DE PROGRAMAÇÃO</a>
+                    <a href="#service3">DESENVOLVIMENTO WEB</a>
+                </div>
+                <a href="#contact">CONTATE-NOS</a>
+            </div>
+        </div>
+    </header>
+    <div class="sandwich">
+        <div class="bread-top"></div>
+        <div class="verde"></div>
+        <div class="amarelo"></div>
+        <div class="vermelho"></div>
+        <div class="bread-bottom"></div>
+    </div>
+    <div class="overlay">
+        <div class="moon"></div>
+        <div class="sun"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Função para criar estrelas no fundo
+            function createStars() {
+                for (let i = 0; i < 100; i++) {
+                    const star = $('<div></div>').addClass('star');
+                    star.css({
+                        top: `${Math.random() * 100}vh`,
+                        left: `${Math.random() * 100}vw`
+                    });
+                    $('.overlay').append(star);
+                }
+            }
+
+            // Cria estrelas ao carregar a página
+            createStars();
+        });
+    </script>
+</body>
+</html>

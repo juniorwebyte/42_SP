@@ -1,0 +1,21 @@
+# Habilitar reescrita de URLs
+RewriteEngine On
+
+# Redirecionar para HTTPS
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirecionar para página personalizada 404
+ErrorDocument 404 /404.html
+
+# Certificar-se de que a URL termina com '/'
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/$ /$1 [R=301,L]
+
+# Redirecionamento de www para não-www (se necessário)
+RewriteCond %{HTTP_HOST} ^www\.investidores\.webytebr\.com$ [NC]
+RewriteRule ^(.*)$ https://investidores.webytebr.com/$1 [R=301,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Este domínio herda o pacote “PHP”.
+# php -- END cPanel-generated handler, do not edit

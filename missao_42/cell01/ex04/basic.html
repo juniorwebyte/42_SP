@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics or home</title>
+    <style>
+        body {
+            background-color: pink;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 4em;
+        }
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .images img {
+            width: 300px;
+            height: auto;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+        }
+        .images img:hover {
+            transform: scale(1.1);
+        }
+        .footer {
+            text-align: right;
+            font-style: italic;
+            font-family: monospace;
+            margin-top: 20px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Básico! &#9733;</h1>
+    <div class="images">
+        <div>
+            <img src="03.jpg" alt="Imersões">
+            <p><a href="https://www.42sp.org.br/imersoes" target="_blank" title="Acesse o Site">Imersão</a></p>
+        </div>
+        <div>
+            <img src="04.jpeg" alt="A 42">
+            <p><a href="https://www.42sp.org.br/" target="_blank" title="Acesse o Site">A 42</a></p>
+        </div>
+    </div>
+    <hr>
+    <div class="footer">
+        © JDE-FIGU 2024
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02: midLS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        ol {
+            margin-left: 20px;
+        }
+        pre {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        .code {
+            color: #d9534f;
+            font-family: "Courier New", Courier, monospace;
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .content-end {
+            margin-bottom: 60px; /* Espaço adicional antes do rodapé */
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercício 02: midLS</h1>
+    </header>
+
+    <section>
+        <h2>Objetivo</h2>
+        <p>Criar um arquivo chamado <code class="code">midLS</code> que, quando executado, lista todos os arquivos e pastas da pasta atual (exceto os arquivos ocultos) e os separa por vírgulas.</p>
+        <p><strong>Explicação:</strong> Este exercício tem como objetivo ensinar a criar um script simples no Linux que utilize comandos básicos do sistema para manipular arquivos e pastas, como o comando <code class="code">ls</code>, que lista os arquivos e diretórios de um diretório, e o <code class="code">grep</code> para excluir arquivos ocultos (arquivos que começam com ponto).</p>
+    </section>
+
+    <section>
+        <h2>Passo a Passo</h2>
+        <ol>
+            <li>
+                <strong>Navegar até a pasta <code class="code">ex02</code>:</strong>
+                <p>Primeiramente, você precisa estar na pasta onde o exercício será realizado. No caso, a pasta <code class="code">ex02</code> dentro da estrutura de pastas já criada. Se ela não existir, você deve criá-la utilizando os seguintes comandos:</p>
+                <pre id="code1"><code class="code">cd ~/missao_42/cell00
+mkdir ex02
+cd ex02</code></pre>
+                <button onclick="copyCode('code1')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Criar o arquivo <code class="code">midLS</code> com o comando necessário:</strong>
+                <p>Agora, você deve criar o arquivo <code class="code">midLS</code>, que vai conter o comando necessário para listar todos os arquivos e pastas da pasta atual, excluindo arquivos ocultos (aqueles que começam com ponto) e separando-os por vírgulas. Para isso, utilize o comando:</p>
+                <pre id="code2"><code class="code">echo "ls -1 | grep -v '^\.' | paste -sd, -" > midLS</code></pre>
+                <button onclick="copyCode('code2')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Verificar o conteúdo do arquivo:</strong>
+                <p>Depois de criar o arquivo <code class="code">midLS</code>, você pode verificar se o conteúdo foi inserido corretamente com o comando:</p>
+                <pre id="code3"><code class="code">cat midLS</code></pre>
+                <p>O conteúdo do arquivo deve ser:</p>
+                <pre><code class="code">ls -1 | grep -v '^\.' | paste -sd, -</code></pre>
+                <button onclick="copyCode('code3')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Tornar o script executável (opcional):</strong>
+                <p>Se quiser rodar o arquivo como um script, você precisa torná-lo executável. Para isso, utilize o comando:</p>
+                <pre id="code4"><code class="code">chmod +x midLS</code></pre>
+                <button onclick="copyCode('code4')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Testar o comando:</strong>
+                <p>Agora, para testar o script e ver se ele funciona corretamente, você pode executar o comando:</p>
+                <pre id="code5"><code class="code">./midLS</code></pre>
+                <p><strong>Explicação:</strong> O comando <code class="code">./</code> executa o arquivo script no terminal. Ele deve listar todos os arquivos e pastas da pasta atual (exceto os ocultos) e separá-los por vírgulas.</p>
+                <button onclick="copyCode('code5')">Copiar código</button>
+            </li>
+        </ol>
+    </section>
+
+    <div class="content-end"></div>
+
+    <footer>
+        <p>&copy; 2025 Exercício 02 - midLS</p>
+    </footer>
+
+    <script>
+        function copyCode(codeId) {
+            var codeElement = document.getElementById(codeId);
+            var range = document.createRange();
+            range.selectNode(codeElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da Aplicação Investidores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #0056b3;
+        }
+        h3 {
+            color: #d9534f;
+        }
+        .section {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .important {
+            font-weight: bold;
+            color: #d9534f;
+        }
+        .step {
+            font-weight: bold;
+            color: #5bc0de;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Documentação da Aplicação Investidores</h1>
+
+<div class="section">
+    <h2>Visão Geral</h2>
+    <p>A aplicação "Investidores" é uma plataforma voltada para oferecer soluções de investimento, incluindo funcionalidades para gestão de afiliados, pagamentos e outras integrações financeiras. O sistema está estruturado dentro de uma arquitetura modular, permitindo fácil expansão e manutenção. A aplicação foi desenvolvida para ser integrada ao Laravel, utilizando boas práticas e tecnologias modernas.</p>
+</div>
+
+<div class="section">
+    <h2>Estrutura do Projeto</h2>
+    <p>A estrutura de pastas da aplicação é organizada de forma a separar os diferentes tipos de recursos, facilitando a manutenção e escalabilidade.</p>
+    <pre>
+/Investidores/
+├── /assets/                          # Arquivos estáticos (imagens, CSS, JS)
+│   ├── /img/                         # Imagens
+│   │   ├── digital-focus-outlier.png
+│   │   ├── fundo.jpg
+│   │   ├── icon.png
+│   │   ├── logo-webyte.png
+│   │   ├── vendi-aqui.png
+│   │   └── webyte-music-logo.png
+│   ├── /css/                         # Arquivos de estilo
+│   │   ├── formulario_investimento.css
+│   │   ├── style.css
+│   │   ├── vendiaqui.css
+│   │   └── webytemusic.css
+│   └── /js/                          # Arquivos JavaScript
+│       └── (seus arquivos JavaScript aqui)
+│
+├── /docs/                            # Documentação do projeto
+│   ├── estrutura.html
+│   ├── index.html
+│   └── log.html
+│
+├── /includes/                        # Arquivos PHP reutilizáveis
+│   ├── formulario_investimento.php
+│   └── formulario_investimento_webytemusic.php
+│
+├── .htaccess                         # Configuração do servidor
+├── index.php                          # Página principal
+├── vendiaqui.php                      # Página do Vendiaqui
+└── webytemusic.php                    # Página da Webyte Music
+    </pre>
+</div>
+
+<div class="section">
+    <h2>Requisitos para Instalação</h2>
+    <ul>
+        <li><strong>PHP 7.4+</strong> ou versão superior</li>
+        <li><strong>Composer</strong> instalado</li>
+        <li><strong>Laravel 8.x ou superior</strong></li>
+        <li><strong>MySQL</strong> ou outro banco de dados suportado pelo Laravel</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>Passo a Passo para Instalação</h2>
+
+    <h3>1. Clonando o Repositório</h3>
+    <p>Clone o repositório da aplicação para sua máquina local.</p>
+    <pre>
+git clone https://github.com/seu-usuario/investidores.git
+cd investidores
+    </pre>
+
+    <h3>2. Instalando as Dependências</h3>
+    <p>Instale as dependências do Laravel usando o Composer.</p>
+    <pre>
+composer install
+    </pre>
+
+    <h3>3. Configurando o Ambiente</h3>
+    <p>Copie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, como o banco de dados.</p>
+    <pre>
+cp .env.example .env
+    </pre>
+
+    <h3>4. Gerando a Chave da Aplicação</h3>
+    <p>Gere a chave de criptografia para a aplicação.</p>
+    <pre>
+php artisan key:generate
+    </pre>
+
+    <h3>5. Executando as Migrações</h3>
+    <p>Execute as migrações do banco de dados para criar as tabelas necessárias.</p>
+    <pre>
+php artisan migrate
+    </pre>
+
+    <h3>6. Servindo a Aplicação</h3>
+    <p>Inicie o servidor de desenvolvimento do Laravel.</p>
+    <pre>
+php artisan serve
+    </pre>
+    <p>A aplicação estará disponível em <strong>http://localhost:8000</strong>.</p>
+</div>
+
+<div class="section">
+    <h2>Manipulando a Estrutura da Aplicação</h2>
+
+    <h3>Arquivos Principais</h3>
+    <p>Na estrutura de pastas, você encontrará os seguintes arquivos principais:</p>
+    <ul>
+        <li><strong>index.php</strong>: Página principal da aplicação.</li>
+        <li><strong>vendiaqui.php</strong>: Página voltada para a plataforma de vendas.</li>
+        <li><strong>webytemusic.php</strong>: Página voltada para a plataforma de música Webyte Music.</li>
+    </ul>
+
+    <h3>1. Adicionando Novos Arquivos de Estilo</h3>
+    <p>Para adicionar novos estilos à aplicação, basta incluir o arquivo CSS dentro da pasta <strong>/assets/css/</strong> e referenciá-lo no arquivo <strong>index.php</strong> ou em qualquer página que deseje estilizar.</p>
+
+    <h3>2. Adicionando Novas Imagens</h3>
+    <p>Para adicionar novas imagens, coloque-as dentro da pasta <strong>/assets/img/</strong> e utilize o caminho relativo nas páginas HTML ou PHP.</p>
+
+    <h3>3. Modificando Funcionalidades PHP</h3>
+    <p>Arquivos PHP reutilizáveis estão localizados na pasta <strong>/includes/</strong>. Se precisar modificar ou adicionar novos formulários, edite os arquivos existentes ou crie novos scripts PHP na pasta <strong>/includes/</strong>.</p>
+</div>
+
+<div class="section">
+    <h2>Conclusão</h2>
+    <p>Essa documentação fornece uma visão geral sobre como configurar e manipular a aplicação "Investidores" dentro de um ambiente Laravel. A estrutura modular permite fácil expansão e personalização de funcionalidades conforme as necessidades do projeto.</p>
+</div>
+
+</body>
+</html>

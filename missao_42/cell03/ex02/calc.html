@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Básica</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #001f3f, #001f3f);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+        .calculator {
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .calculator input, .calculator select {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            box-sizing: border-box;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .calculator input[type="submit"] {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            border-radius: 5px;
+        }
+        .calculator input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+        .moon {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 50px;
+            height: 50px;
+            background: #f0e68c;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .sun {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background: #ffdd57;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: rain 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        @keyframes rain {
+            0% { top: 100px; }
+            100% { top: 500px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <!-- Campo de entrada para o operando esquerdo -->
+        <input type="text" id="leftOperand" placeholder="Operador Esquerdo">
+        <!-- Campo de seleção para o operador -->
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <!-- Campo de entrada para o operando direito -->
+        <input type="text" id="rightOperand" placeholder="Operando Direito">
+        <!-- Botão de submissão para calcular -->
+        <input type="submit" value="Calcule agora!" onclick="calculate()">
+    </div>
+    <div class="moon"></div>
+    <div class="sun"></div>
+
+    <script>
+        // Função para realizar o cálculo
+        function calculate() {
+            // Obtém os valores dos operandos e do operador
+            const leftOperand = parseInt(document.getElementById('leftOperand').value);
+            const operator = document.getElementById('operator').value;
+            const rightOperand = parseInt(document.getElementById('rightOperand').value);
+
+            // Verifica se os operandos são válidos
+            if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0) {
+                alert('Error , insira os valores corretos. :(');
+                console.log('Erro :(');
+                return;
+            }
+
+            let result;
+            // Realiza o cálculo com base no operador selecionado
+            switch (operator) {
+                case '+':
+                    result = leftOperand + rightOperand;
+                    break;
+                case '-':
+                    result = leftOperand - rightOperand;
+                    break;
+                case '*':
+                    result = leftOperand * rightOperand;
+                    break;
+                case '/':
+                    if (rightOperand === 0) {
+                        alert("São mais de 9.000!");
+                        console.log("São mais de 9.000!");
+                        return;
+                    }
+                    result = leftOperand / rightOperand;
+                    break;
+                case '%':
+                    if (rightOperand === 0) {
+                        alert("São mais de 9.000!");
+                        console.log("São mais de 9.000!");
+                        return;
+                    }
+                    result = leftOperand % rightOperand;
+                    break;
+                default:
+                    alert('Erro :(');
+                    console.log('Erro :(');
+                    return;
+            }
+
+            // Exibe o resultado em um alerta e no console
+            alert(`Resultado: ${result}`);
+            console.log(`Resultado: ${result}`);
+        }
+
+        // Exibe um alerta a cada 30 segundos
+        setInterval(() => {
+            alert('Por favor, calcule...');
+        }, 30000);
+
+        // Função para criar estrelas no fundo
+        function createStars() {
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.left = `${Math.random() * 100}vw`;
+                document.body.appendChild(star);
+            }
+        }
+
+        // Cria estrelas ao carregar a página
+        window.onload = createStars;
+    </script>
+</body>
+</html>

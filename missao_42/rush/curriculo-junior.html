@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo de Júnior Alves</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #007bff, #6c757d);
+            color: #f8f9fa;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+        .nav-link:hover {
+            color: #ffdd57 !important;
+        }
+        .container {
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            color: #343a40;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            overflow-y: auto;
+            flex-grow: 1;
+            margin-top: 100px;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .img-thumbnail {
+            max-width: 100px;
+            border-radius: 50%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .img-thumbnail:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+        p {
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, #007bff, #0056b3);
+            border: none;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(to right, #0056b3, #003d75);
+            transform: scale(1.1);
+        }
+        .footer {
+            background: #343a40;
+            color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            margin-top: 30px;
+        }
+        /* Modal Styles */
+        .modal-content {
+            background: #f8f9fa;
+            color: #343a40;
+            border-radius: 10px;
+        }
+        .home-button, .next-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .next-button {
+            right: 100px; /* Coloca o botão mais à esquerda do que o "Home" */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="#"><i class="fas fa-id-badge"></i> Currículo Júnior Alves</a>
+        <button class="btn btn-light home-button" onclick="window.location.href = 'index.html'">Home</button>
+        <button class="btn btn-light next-button" onclick="window.location.href = 'curriculum_jota.html'">Próximo</button>
+    </nav>
+
+    <div class="container">
+        <section id="info-pessoal">
+            <h2>Informações Pessoais</h2>
+            <img src="./assets/img/junior.jpeg" alt="Foto" class="img-thumbnail">
+            <p><strong>Nome:</strong> Júnior Alves</p>
+            <p><strong>Cargo:</strong> Desenvolvedora Web</p>
+            <button class="btn btn-primary" onclick="showCurriculo()">Ver Currículo</button>
+        </section>
+        <section id="experiencia">
+            <h2>Experiência</h2>
+            <p>Experiência profissional e habilidades...</p>
+        </section>
+        <section id="contato">
+            <h2>Contato</h2>
+            <p><strong>E-mail:</strong> junior@webytebr.com</p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/" target="_blank">linkedin.com/in/junioralves</a></p>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Júnior Alves. Todos os direitos reservados.</p>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="curriculoModal" tabindex="-1" aria-labelledby="curriculoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="curriculoModalLabel">Currículo de Júnior Alves</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Informações Pessoais</h2>
+                    <img src="./assets/img/junior.jpeg" alt="Foto" class="img-thumbnail">
+                    <p><strong>Nome:</strong> Júnior Alves</p>
+                    <p><strong>Cargo:</strong> Desenvolvedora Web</p>
+                    <h2>Experiência</h2>
+                    <p>Você possui experiência nas áreas de desenvolvimento web e administração. 
+                        Como desenvolvedor, trabalha com tecnologias como HTML, CSS, JavaScript e frameworks como Bootstrap, 
+                        focando em soluções criativas e eficientes. Além disso, tem experiência em design e usabilidade. 
+                        Em sua trajetória, também se destaca em áreas administrativas e de design gráfico, utilizando ferramentas como Excel e Adobe Photoshop, 
+                        sempre buscando aprimorar suas habilidades e entregar resultados de alta qualidade.</p>
+                    <h2>Contato</h2>
+                    <p><strong>E-mail:</strong> junior@webytebr.com</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/" target="_blank">linkedin.com/in/junioralves</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showCurriculo() {
+            $('#curriculoModal').modal('show');
+        }
+    </script>
+</body>
+</html>

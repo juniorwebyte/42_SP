@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de Pastas do WebytePay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-bottom: 20px;
+        }
+        .folder-structure {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            white-space: pre;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow-x: auto;
+        }
+        .folder {
+            color: #d9534f;
+            font-weight: bold;
+        }
+        .file {
+            color: #5bc0de;
+            font-weight: bold;
+        }
+        .comment {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Estrutura de Pastas do WebytePay</h1>
+<div class="folder-structure">
+<pre>
+<span class="folder">/Investidores/</span>
+├── <span class="folder">/assets/</span>                          <span class="comment"># Arquivos estáticos (imagens, CSS, JS)</span>
+│   ├── <span class="folder">/img/</span>                         <span class="comment"># Imagens</span>
+│   │   ├── <span class="file">digital-focus-outlier.png</span>
+│   │   ├── <span class="file">fundo.jpg</span>
+│   │   ├── <span class="file">icon.png</span>
+│   │   ├── <span class="file">logo-webyte.png</span>
+│   │   ├── <span class="file">vendi-aqui.png</span>
+│   │   └── <span class="file">webyte-music-logo.png</span>
+│   ├── <span class="folder">/css/</span>                         <span class="comment"># Arquivos de estilo</span>
+│   │   ├── <span class="file">formulario_investimento.css</span>
+│   │   ├── <span class="file">style.css</span>
+│   │   ├── <span class="file">vendiaqui.css</span>
+│   │   └── <span class="file">webytemusic.css</span>
+│   └── <span class="folder">/js/</span>                          <span class="comment"># Arquivos JavaScript</span>
+│       └── <span class="file">(seus arquivos JavaScript aqui)</span>
+│
+├── <span class="folder">/docs/</span>                            <span class="comment"># Documentação do projeto</span>
+│   ├── <span class="file">estrutura.html</span>
+│   ├── <span class="file">index.html</span>
+│   └── <span class="file">log.html</span>
+│
+├── <span class="folder">/includes/</span>                        <span class="comment"># Arquivos PHP reutilizáveis</span>
+│   ├── <span class="file">formulario_investimento.php</span>
+│   └── <span class="file">formulario_investimento_webytemusic.php</span>
+│
+├── <span class="file">.htaccess</span>                         <span class="comment"># Configuração do servidor</span>
+├── <span class="file">index.php</span>                          <span class="comment"># Página principal</span>
+├── <span class="file">vendiaqui.php</span>                      <span class="comment"># Página do Vendiaqui</span>
+└── <span class="file">webytemusic.php</span>                    <span class="comment"># Página da Webyte Music</span>
+</pre>
+</div>
+
+</body>
+</html>

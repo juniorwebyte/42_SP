@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo de José Oliveira</title>
+    <link rel="stylesheet" href="./assets/css/curriculum_jota.css">
+    <link rel="icon" href="assets/img/icon.png" type="image/png">
+    <style>
+        /* Estilo para o botão no canto superior esquerdo */
+        .back-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+        }
+
+        .next-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+
+        .back-btn a, .next-btn a {
+            display: inline-block;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50%; /* Tornando o botão circular */
+            text-align: center;
+            width: 45px; /* Largura do botão */
+            height: 45px; /* Altura do botão */
+            line-height: 40px; /* Alinha o texto no centro verticalmente */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s ease;
+        }
+
+        .back-btn a:hover, .next-btn a:hover {
+            background-color: #0056b3;
+            transform: scale(1.1); /* Efeito de aumento ao passar o mouse */
+        }
+
+        .back-btn a:active, .next-btn a:active {
+            background-color: #003f75;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Botão para voltar para a home -->
+        <div class="back-btn">
+            <a href="index.html">HOME</a> <!-- O texto "Voltar para a Home" foi substituído por um ícone de casa -->
+        </div>
+
+        <!-- Botão para o próximo currículo -->
+        <div class="next-btn">
+            <a href="curriculo-junior.html">NEXT</a> <!-- Link para o próximo currículo -->
+        </div>
+
+        <header>
+            <img src="./assets/img/jotinha.jpg" alt="Foto de Perfil" class="perfil">
+            <h1>José Oliveira</h1>
+            <p>📍 <strong>Localização</strong>: Pirituba / SP</p>
+            <p>📞 <strong>Telefone</strong>: <a href="tel:+5511954222916">(11) 95422-2916</a></p>
+            <p>📧 <strong>E-mail</strong>: <a href="mailto:jota.zehering@gmail.com">jota.zehering@gmail.com</a></p>
+            <p>🔗 <strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/thejotah" target="_blank">www.linkedin.com/in/thejotah</a></p>
+        </header>
+
+        <section>
+            <h2>Perfil Profissional</h2>
+            <p>Experiência em administração, design gráfico e desenvolvimento de soluções organizacionais...</p>
+        </section>
+        <section>
+            <h2>Habilidades Técnicas</h2>
+            <ul>
+                <li><strong>Programação</strong>: HTML, CSS, Shell Script, Programação Lógica</li>
+                <li><strong>Ferramentas</strong>: Excel (avançado), SISAIH, Plotter</li>
+                <li><strong>Design</strong>: Adobe Photoshop, Modelagem de Dados, Web Design</li>
+                <li><strong>Outras Competências</strong>: Gestão de processos administrativos, digitalização e organização documental, elaboração de relatórios</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Experiência Profissional</h2>
+            <div class="job">
+                <h3>Fronzaglia Sociedade Individual de Advocacia</h3>
+                <p><strong>Auxiliar Administrativo</strong></p>
+                <p>Abril de 2019 – Setembro de 2024 | São Paulo, SP</p>
+                <ul>
+                    <li>Criação, alimentação e edição de planilhas no Excel.</li>
+                    <li>Digitalização e organização de processos e documentos judiciais.</li>
+                    <li>Elaboração de relatórios de prestação de contas.</li>
+                    <li>Gerenciamento de ordens de serviços e notas fiscais.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Santa Casa de Misericórdia de São Paulo</h3>
+                <p><strong>Auxiliar Administrativo</strong></p>
+                <p>Março de 2017 – Junho de 2018 | São Paulo, SP</p>
+                <ul>
+                    <li>Criação e manutenção de planilhas no Excel.</li>
+                    <li>Lançamento de notas fiscais eletrônicas e ordens de serviços.</li>
+                    <li>Utilização do sistema SISAIH para faturamento hospitalar.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Skytech</h3>
+                <p><strong>Designer Gráfico</strong></p>
+                <p>Setembro de 2015 – Setembro de 2017 | São Paulo, SP</p>
+                <ul>
+                    <li>Edição, configuração e impressão de materiais gráficos.</li>
+                    <li>Responsável pelo departamento de plotagem e serviços gerais envolvendo a plotter.</li>
+                    <li>Atendimento ao público e elaboração de orçamentos.</li>
+                    <li>Serviços de encadernação, plastificação e copiadora.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Tribunal de Justiça de São Paulo</h3>
+                <p><strong>Auxiliar Administrativo</strong></p>
+                <p>Setembro de 2013 – Dezembro de 2014 | São Paulo, SP</p>
+                <ul>
+                    <li>Conferência de serviços manuais e informatizados.</li>
+                    <li>Digitação de textos e organização de tabelas.</li>
+                    <li>Atendimento ao público e controle de correspondências.</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>Formação Acadêmica</h2>
+            <p><strong>UNINOVE</strong></p>
+            <p>Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
+            <p>2019 – 2021</p>
+        </section>
+        <section>
+            <h2>Certificações</h2>
+            <ul>
+                <li>Modelagem de Dados</li>
+                <li>Design Gráfico</li>
+                <li>Web Design</li>
+                <li>Arco Administrativo</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Idiomas</h2>
+            <ul>
+                <li><strong>Português</strong>: Nativo</li>
+                <li><strong>Inglês</strong>: Intermediário (em desenvolvimento)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Informações Adicionais</h2>
+            <p>Interesse em projetos inovadores e aprendizado contínuo na área de tecnologia.</p>
+            <p>Disponibilidade para trabalhar presencialmente ou remotamente.</p>
+        </section>
+    </div>
+
+    <!-- Adicione o script do Bootstrap (se necessário) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a viewport para responsividade -->
+    <title>Tabela Responsiva</title> <!-- Título da página -->
+    <style>
+        body, html {
+            margin: 0; /* Remove margens padrão */
+            padding: 0; /* Remove preenchimento padrão */
+            height: 100%; /* Define a altura como 100% da tela */
+            box-sizing: border-box; /* Inclui bordas e preenchimento no cálculo da largura e altura */
+        }
+        body {
+            display: flex; /* Usa flexbox para layout */
+            flex-direction: column; /* Alinha os itens em coluna */
+        }
+        table {
+            width: 100%; /* Define a largura da tabela como 100% do contêiner */
+            border-collapse: collapse; /* Remove espaços entre as células da tabela */
+            flex-grow: 1; /* Permite que a tabela cresça para preencher o espaço disponível */
+        }
+        td {
+            border: 1px solid black; 
+            padding: 30px; 
+            text-align: center; 
+        }
+        .cell1 {
+            background-color: lightblue; 
+        }
+        .cell2 {
+            background-color: lightgreen; 
+        }
+        .cell2:hover {
+            background-color: lightcoral; 
+        }
+        h1 {
+            text-align: center; 
+            color: blue; 
+        }
+        h1:hover {
+            color: rgb(8, 53, 2); 
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabela com Cores</h1> 
+    <table>
+        <tr>
+            <td class="cell1">Teste Célula 1</td> 
+            <td class="cell2">Teste Célula 2</td> 
+            <td class="cell1">Teste Célula 3</td> 
+            <td class="cell2">Teste Célula 4</td> 
+            <td class="cell1">Teste Célula 5</td> 
+        </tr>
+    </table>
+</body>
+</html>O que essa biblioteca execulta.

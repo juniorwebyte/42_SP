@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01: Z</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        ol {
+            margin-left: 20px;
+        }
+        pre {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        .code {
+            color: #d9534f;
+            font-family: "Courier New", Courier, monospace;
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercício 01: Z</h1>
+    </header>
+
+    <section>
+        <h2>Objetivo</h2>
+        <p>Para este exercício, o objetivo é criar um arquivo chamado <code class="code">z</code> que, quando utilizado com o comando <code class="code">cat</code>, mostre a letra "Z" seguida de uma nova linha.</p>
+    </section>
+
+    <section>
+        <h2>Passo a Passo</h2>
+        <ol>
+            <li>
+                <strong>Navegar até a pasta correta:</strong>
+                <p>Primeiramente, vá até a pasta <code class="code">ex01</code>, onde você deve criar o arquivo. Se você já estiver na pasta <code class="code">missao_42/cell00/ex00</code>, basta navegar até <code class="code">cell00/ex01</code>:</p>
+                <pre id="code1"><code class="code">cd ~/missao_42/cell00/ex01</code></pre>
+                <button onclick="copyCode('code1')">Copiar código</button>
+                <p>Se a pasta <code class="code">ex01</code> ainda não existir, crie-a:</p>
+                <pre id="code2"><code class="code">mkdir ex01
+cd ex01</code></pre>
+                <button onclick="copyCode('code2')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Criar o arquivo <code class="code">z</code>:</strong>
+                <p>Agora, crie o arquivo <code class="code">z</code> utilizando o comando <code class="code">echo</code>:</p>
+                <pre id="code3"><code class="code">echo "Z" > z</code></pre>
+                <button onclick="copyCode('code3')">Copiar código</button>
+                <p>Esse comando cria o arquivo <code class="code">z</code> e escreve a letra "Z" nele, seguida de uma nova linha.</p>
+            </li>
+            <li>
+                <strong>Verificar o conteúdo do arquivo com <code class="code">cat</code>:</strong>
+                <p>Após criar o arquivo, você pode verificar se ele está correto utilizando o comando <code class="code">cat</code>:</p>
+                <pre id="code4"><code class="code">cat z</code></pre>
+                <button onclick="copyCode('code4')">Copiar código</button>
+                <p>A saída deve ser:</p>
+                <pre><code class="code">Z</code></pre>
+            </li>
+            <li>
+                <strong>Estrutura final:</strong>
+                <p>Após executar os passos, a pasta <code class="code">ex01</code> deve conter o arquivo <code class="code">z</code>, e ao executar <code class="code">cat z</code>, você verá a letra "Z" na tela.</p>
+            </li>
+        </ol>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Exercício 01 - Z</p>
+    </footer>
+
+    <script>
+        function copyCode(codeId) {
+            var codeElement = document.getElementById(codeId);
+            var range = document.createRange();
+            range.selectNode(codeElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+</html>

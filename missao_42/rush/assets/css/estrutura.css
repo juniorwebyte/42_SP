@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura de Pastas - Webyte</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="assets/img/icon.png" type="image/png">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.php">Início</a></li>
+                <li><a href="../vendiaqui.php">VendiAqui</a></li>
+                <li><a href="../webytemusic.php">Webyte Music</a></li>
+                <li><a href="index.html">Documentação</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="estrutura">
+        <h1>Estrutura de Pastas do Webyte</h1>
+        <div class="container">
+            <pre>
+/assets
+    /css
+        style.css
+        vendiaqui.css
+        webytemusic.css
+    /img
+        icon.png
+        fundo.jpg
+        logo-webyte.png
+        webyte-music-logo.png
+    /js
+        script.js
+    /php
+        formulario_investimento.php
+        formulario_investimento_webytemusic.php
+/documentacao
+    estrutura.html
+    index.html
+    log.html
+.htaccess
+index.php
+vendiaqui.php
+webytemusic.php
+            </pre>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Webyte. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 04: argv.sh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007BFF;
+        }
+        ol {
+            margin-left: 20px;
+        }
+        pre {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+        .code {
+            color: #d9534f;
+            font-family: "Courier New", Courier, monospace;
+        }
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercício 04: argv.sh</h1>
+    </header>
+
+    <section>
+        <h2>Objetivo</h2>
+        <p>Escrever um script chamado <code class="code">argv.sh</code> que exibe até 3 argumentos passados a este script. Se nenhum argumento for passado, o script deve mostrar uma mensagem informando isso.</p>
+    </section>
+
+    <section>
+        <h2>Passo a Passo</h2>
+        <ol>
+            <li>
+                <strong>Criar o arquivo <code class="code">argv.sh</code>:</strong>
+                <p>Primeiro, crie o arquivo <code class="code">argv.sh</code> dentro da pasta <code class="code">ex04</code> com o seguinte conteúdo:</p>
+                <pre><code class="code">#!/bin/bash
+
+# Verifica se nenhum argumento foi passado
+if [ $# -eq 0 ]; then
+    echo "No arguments supplied"
+else
+    count=0
+    # Loop para percorrer os argumentos
+    for arg in "$@"; do
+        # Verifica se o número de argumentos não excede 3
+        if [ $count -lt 3 ]; then
+            echo "$arg"
+            ((count++))
+        fi
+    done
+fi</code></pre>
+                <p>Este código realiza a verificação dos argumentos passados ao script. A variável especial <code class="code">$#</code> conta o número de argumentos, e o script imprime até três argumentos passados.</p>
+                <button onclick="copyCode('code1')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Tornar o arquivo executável:</strong>
+                <p>Para poder executar o script diretamente, torne-o executável com o comando:</p>
+                <pre><code class="code">chmod +x argv.sh</code></pre>
+                <p>Este comando atribui a permissão de execução ao script, permitindo que você execute-o diretamente.</p>
+                <button onclick="copyCode('code2')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Executar o script sem argumentos:</strong>
+                <p>Execute o script sem argumentos:</p>
+                <pre><code class="code">./argv.sh</code></pre>
+                <p>A saída esperada será:</p>
+                <pre><code class="code">No arguments supplied</code></pre>
+                <p>Quando nenhum argumento é passado, o script verifica isso e exibe a mensagem indicando que nenhum argumento foi fornecido.</p>
+                <button onclick="copyCode('code3')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Testar com um argumento:</strong>
+                <p>Execute o script passando um único argumento:</p>
+                <pre><code class="code">./argv.sh 42</code></pre>
+                <p>A saída esperada será:</p>
+                <pre><code class="code">42</code></pre>
+                <p>Neste caso, o script exibe o único argumento passado: <code class="code">42</code>.</p>
+                <button onclick="copyCode('code4')">Copiar código</button>
+            </li>
+            <li>
+                <strong>Testar com múltiplos argumentos:</strong>
+                <p>Execute o script com mais de 3 argumentos:</p>
+                <pre><code class="code">./argv.sh 2 40 42</code></pre>
+                <p>A saída esperada será:</p>
+                <pre><code class="code">2
+40
+42</code></pre>
+                <p>Quando mais de três argumentos são passados, o script exibe até três deles, conforme a lógica implementada no laço <code class="code">for</code>.</p>
+                <button onclick="copyCode('code5')">Copiar código</button>
+            </li>
+        </ol>
+    </section>
+    <br><br><br>
+    <footer>
+        <p>&copy; 2025 Exercício 04 - argv.sh</p>
+    </footer>
+
+    <script>
+        function copyCode(codeId) {
+            var codeElement = document.getElementById(codeId);
+            var range = document.createRange();
+            range.selectNode(codeElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+</html>
